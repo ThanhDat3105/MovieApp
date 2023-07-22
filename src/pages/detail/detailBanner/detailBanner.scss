@@ -1,0 +1,249 @@
+@import "../../../mixins.scss";
+
+.detailsBannner {
+    padding-top: 120px;
+    background-color: #04152d;
+    position: relative;
+
+    .backdrop__img {
+        height: 100%;
+        left: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        width: 100%;
+
+        .lazy-load-image-background {
+            width: 100%;
+
+            img {
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
+            }
+
+        }
+    }
+
+    .opacity__layer {
+        background: linear-gradient(180deg, rgba(4, 21, 45, 0), #04152d 79.17%);
+        bottom: 0;
+        height: 500px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+    }
+
+    .contentWrapper {
+        margin: 0 auto;
+        max-width: 1200px;
+        padding: 0 20px;
+        width: 100%;
+
+        .content {
+            display: flex;
+            flex-direction: row;
+            gap: 50px;
+            position: relative;
+
+            .left {
+                img {
+                    max-width: 350px;
+                }
+            }
+
+            .right {
+                color: white;
+
+                .title {
+                    font-size: 34px;
+                    line-height: 44px;
+                    font-weight: 700;
+                }
+
+                .subtitle {
+                    font-size: 20px;
+                    line-height: 28px;
+                    opacity: .5;
+                    font-weight: 600;
+                    padding-bottom: 20px;
+                }
+
+                .genres {
+                    position: relative;
+                    flex-flow: row;
+                    justify-content: flex-start;
+                    right: 0;
+                    padding-bottom: 20px;
+
+                }
+
+                .row {
+                    padding-bottom: 13px;
+                    gap: 25px;
+
+                    .circleRating {
+                        background-color: #04152d;
+                        border-radius: 50%;
+                        padding: 2px;
+                        width: 11%;
+                        position: initial;
+                        bottom: 5px;
+                        left: 15px;
+
+                        .CircularProgressbar-text {
+                            fill: white;
+                        }
+                    }
+                }
+
+                .overview {
+                    .heading {
+                        font-size: 25px;
+                        margin-bottom: 6px;
+                        font-weight: 600;
+                    }
+
+                    .description {
+                        font-weight: 600;
+                        font-size: 17 px;
+                    }
+                }
+
+                .row {
+                    .playbtn {
+                        display: flex;
+                        align-items: center;
+                        gap: 20px;
+                        cursor: pointer;
+
+                        svg {
+                            width: 60px;
+
+                            @include md {
+                                width: 80px;
+                            }
+                        }
+
+                        .text {
+                            font-size: 20px;
+                            transition: all 0.7s ease-in-out;
+                            font-weight: 600;
+                        }
+
+                        .triangle {
+                            stroke-dasharray: 240;
+                            stroke-dashoffset: 480;
+                            stroke: white;
+                            transform: translateY(0);
+                            transition: all 0.7s ease-in-out;
+                        }
+
+                        .circle {
+                            stroke: white;
+                            stroke-dasharray: 650;
+                            stroke-dashoffset: 1300;
+                            transition: all 0.5s ease-in-out;
+                        }
+
+                        &:hover {
+                            .text {
+                                color: var(--pink);
+                            }
+
+                            .triangle {
+                                stroke-dashoffset: 0;
+                                opacity: 1;
+                                stroke: var(--pink);
+                                animation: trailorPlay 0.7s ease-in-out;
+                            }
+
+                            .circle {
+                                stroke-dashoffset: 0;
+                                stroke: var(--pink);
+                            }
+                        }
+                    }
+                }
+
+                .info {
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                    padding: 15px 0;
+                    display: flex;
+
+                    .infoItem {
+                        margin-right: 10px;
+                        display: flex;
+                        flex-flow: row wrap;
+                    }
+
+                    .text {
+                        margin-right: 10px;
+                        opacity: 0.5;
+                        line-height: 24px;
+
+                        &.bold {
+                            font-weight: 600;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .detailsBannerSkeleton {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        gap: 25px;
+        margin: 0 auto;
+        max-width: 1200px;
+        width: 100%;
+        padding: 25px 20px;
+
+        @include md {
+            gap: 50px;
+            flex-direction: row;
+        }
+
+        .contentWrapper {
+            display: flex;
+            gap: 50px;
+        }
+
+        .left {
+            flex-shrink: 0;
+            width: 100%;
+            display: block;
+            border-radius: 12px;
+            aspect-ratio: 1/1.5;
+
+            @include md {
+                max-width: 350px;
+            }
+        }
+
+        .right {
+            width: 100%;
+
+            .row {
+                width: 100%;
+                height: 25px;
+                margin-bottom: 20px;
+                border-radius: 50px;
+
+                &:nth-child(2) {
+                    width: 75%;
+                    margin-bottom: 50px;
+                }
+
+                &:nth-child(5) {
+                    width: 50%;
+                    margin-bottom: 50px;
+                }
+            }
+        }
+    }
+}

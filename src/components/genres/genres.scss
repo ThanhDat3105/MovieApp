@@ -1,0 +1,20 @@
+.genres {
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    right: 10px;
+    flex-flow: wrap;
+    bottom: 10px;
+    font-weight: 600;
+    max-width: 150px;
+    justify-content: end;
+
+    .genre {
+        background-color: var(--pink);
+        padding: 0 5px;
+        font-size: 12px;
+        border-radius: 4px;
+        color: white;
+        white-space: nowrap;
+    }
+}

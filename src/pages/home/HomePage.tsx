@@ -1,52 +1,16 @@
-import React from "react";
-import ItemMovie from "../itemMoive/ItemMovie";
+import React, { useEffect } from "react";
 import "./homePage.scss";
-export default function HomePage() {
+import Banner from "./banner/Banner";
+import Trending from "./trending/Trending";
+import Popular from "./popular/Popular";
+import TopRated from "./topRated/TopRated";
+export default function HomePage(): JSX.Element {
   return (
-    <div className="home__page pb-5">
-      <div className="banner">
-        <div className="banner__img">
-          <img src="https://image.tmdb.org/t/p/original/kgATFkG4SDyengNMmCuwmj7igWW.jpg" />
-        </div>
-        <div className="opacity__banner"></div>
-      </div>
-      <div className="movie__list">
-        <div className="container">
-          <div className="hot__list">
-            <div className="title">
-              <h1>hot</h1>
-            </div>
-            <div className="movie__item d-flex">
-              <ItemMovie />
-              <ItemMovie />
-              <ItemMovie />
-              <ItemMovie />
-            </div>
-          </div>
-          <div className="trending__list mt-5">
-            <div className="title">
-              <h1>trending</h1>
-            </div>
-            <div className="movie__item d-flex">
-              <ItemMovie />
-              <ItemMovie />
-              <ItemMovie />
-              <ItemMovie />
-            </div>
-          </div>
-          <div className="topRate__list mt-5">
-            <div className="title">
-              <h1>Top Rate</h1>
-            </div>
-            <div className="movie__item d-flex">
-              <ItemMovie />
-              <ItemMovie />
-              <ItemMovie />
-              <ItemMovie />
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className="home__page" style={{ paddingBottom: 80 }}>
+      <Banner />
+      <Trending />
+      <Popular />
+      <TopRated />
     </div>
   );
 }

@@ -1,0 +1,149 @@
+@import "../../../mixins.scss";
+
+#app {
+    height: 100%;
+}
+
+html,
+body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    // background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+
+    .loadingSkeleton {
+        display: flex;
+        gap: 10px;
+        overflow-y: hidden;
+        margin-right: -20px;
+        margin-left: -20px;
+        padding: 0 20px;
+
+        @include md {
+            gap: 20px;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        .skeletonItem {
+            width: 125px;
+
+            @include md {
+                width: calc(25% - 15px);
+            }
+
+            @include lg {
+                width: calc(20% - 16px);
+            }
+
+            flex-shrink: 0;
+
+            .posterBlock {
+                border-radius: 12px;
+                width: 100%;
+                aspect-ratio: 1 / 1.5;
+                margin-bottom: 30px;
+
+                .lazy-load-image-background {
+                    height: 100%;
+                }
+
+            }
+
+            .textBlock {
+                display: flex;
+                flex-direction: column;
+
+                .title {
+                    width: 100%;
+                    height: 20px;
+                    margin-bottom: 10px;
+                }
+
+                .date {
+                    width: 75%;
+                    height: 20px;
+                }
+            }
+
+            &:hover {
+                .posterBlock {
+                    opacity: .5;
+                }
+            }
+
+        }
+    }
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    cursor: pointer;
+
+    .text {
+        color: white;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+
+        .title {
+            -webkit-line-clamp: 1;
+            font-size: 20px;
+            -webkit-box-orient: vertical;
+            display: -webkit-box;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: 600;
+
+        }
+
+        .date {
+            font-size: 14px;
+            opacity: .5;
+        }
+    }
+
+    .posterBlock {
+        align-items: flex-end;
+        aspect-ratio: 1/1.5;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 25px;
+        position: relative;
+
+    }
+
+    &:hover {
+        .posterBlock {
+            opacity: .5;
+            transition: all ease .5s;
+
+        }
+    }
+
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

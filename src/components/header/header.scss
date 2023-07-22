@@ -1,10 +1,119 @@
 .header {
+    background: rgba(0, 0, 0, .25);
     position: fixed;
     width: 100%;
     text-align: center;
     z-index: 1;
+    height: 60px;
+    transform: translateY(0);
+    transition: all ease 0.5s;
+    z-index: 2;
 
-    h1 {
-        color: white;
+    &.top {
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(3.5px);
+        -webkit-backdrop-filter: blur(3.5px);
+    }
+
+    &.show {
+        background-color: var(--black3);
+    }
+
+    &.hide {
+        transform: translateY(-60px);
+    }
+
+    .headerSetting {
+        margin: 0 auto;
+        max-width: 1200px;
+        padding: 0 20px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+
+        .logo {
+            cursor: pointer;
+
+            img {
+                height: 50px;
+            }
+        }
+
+        .menuItem {
+            list-style: none;
+            display: flex;
+            margin-bottom: 0;
+
+            .item {
+                font-size: 18px;
+                height: 60px;
+                color: white;
+                cursor: pointer;
+                margin: 0 15px;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+                transition: all ease .3s;
+
+                &:hover {
+                    color: #da2f68;
+                }
+            }
+
+        }
+    }
+
+    .searchBar {
+        background-color: white;
+        animation: mobileMenu 0.3s ease forwards;
+
+        .ContentWrapper {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+
+            .searchInput {
+                display: flex;
+                align-items: center;
+                height: 40px;
+                width: 100%;
+                padding: 26px 0;
+
+                svg {
+                    font-size: 20px;
+                    flex-shrink: 0;
+                    margin-left: 10px;
+                    cursor: pointer;
+                }
+
+                input {
+                    width: 100%;
+                    background-color: white;
+                    outline: 0;
+                    border: 0;
+                    border-radius: 30px 0 0 30px;
+                    padding: 0 15px;
+                    font-size: 18px;
+                    // @include md {
+                    //     height: 60px;
+                    //     font-size: 20px;
+                    //     padding: 0 30px;
+                    // }
+                }
+            }
+        }
+    }
+}
+
+@keyframes mobileMenu {
+    0% {
+        transform: translateX(-130%);
+    }
+
+    100% {
+        transform: translateX(0);
     }
 }
